@@ -4,23 +4,12 @@ def substrings(string, dictionary)
   substring_array = []
   dictionary.each do |x|
     string_array.each do |e|
-      y = 0
-      while y <= e.length
-        substr = e[y..-1]
-        if substr == x
-          substring_array.push(substr)
-          break
-        elsif x == e[0..(e.length - y)]
-          substring_array.push(e[0..(e.length - y)])
-        end
-        
-        y += 1
+      if e.include?x
+        substring_array.push(x)
       end
     end
-    
   end
-  substring_array.each {|word| substring_hash[word] += 1}
-  
+  substring_array.each {|word| substring_hash[word] += 1}  
   puts substring_hash
 end
 
